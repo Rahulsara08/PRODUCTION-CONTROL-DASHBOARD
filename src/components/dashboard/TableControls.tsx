@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from "react";
 import { JobStatus, SortField, SortDirection } from "@/types/job";
 import { Search, X, ArrowUpDown, ArrowDown, ArrowUp } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 
 interface TableControlsProps {
   searchQuery: string;
@@ -127,13 +128,15 @@ export const TableControls: React.FC<TableControlsProps> = ({
           </div>
 
           {hasActiveFilters && (
-            <button
+            <Button
+              variant="outline"
+              size="sm"
               onClick={onResetFilters}
-              className="text-xs px-2.5 py-1.5 rounded-md border border-zinc-300 bg-white hover:bg-zinc-100 text-zinc-700 font-medium transition-colors flex items-center gap-1"
+              className="text-xs px-2.5 py-1.5 h-8 text-zinc-700"
             >
               <X className="w-3.5 h-3.5" />
               Clear
-            </button>
+            </Button>
           )}
         </div>
       </div>

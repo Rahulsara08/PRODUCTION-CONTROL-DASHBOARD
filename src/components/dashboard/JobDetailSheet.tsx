@@ -9,6 +9,7 @@ import {
   cn,
 } from "@/lib/utils";
 import { X, Check } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 interface JobDetailSheetProps {
   job: Job | null;
@@ -221,19 +222,15 @@ export const JobDetailSheet: React.FC<JobDetailSheetProps> = ({
             />
 
             <div className="mt-2 flex justify-end">
-              <button
+              <Button
                 id="job-notes-save-btn"
+                size="sm"
                 onClick={handleSaveNotes}
                 disabled={isSavingNotes || editedNotes === job.notes}
-                className={cn(
-                  "text-xs px-3 py-1.5 rounded-md font-medium transition-colors cursor-pointer",
-                  editedNotes !== job.notes
-                    ? "bg-zinc-950 text-white hover:bg-black"
-                    : "bg-zinc-100 text-zinc-400 cursor-not-allowed border border-zinc-200"
-                )}
+                className="text-xs font-medium"
               >
                 {isSavingNotes ? "Saving..." : "Save Notes"}
-              </button>
+              </Button>
             </div>
           </div>
         </div>
@@ -241,12 +238,14 @@ export const JobDetailSheet: React.FC<JobDetailSheetProps> = ({
         {/* Footer */}
         <div className="pt-4 border-t border-zinc-200 flex items-center justify-between text-xs text-zinc-500">
           <span>{job.lastUpdated}</span>
-          <button
+          <Button
+            variant="outline"
+            size="sm"
             onClick={onClose}
-            className="px-3 py-1 rounded-md border border-zinc-300 bg-white hover:bg-zinc-50 text-zinc-700 font-medium transition-colors cursor-pointer"
+            className="text-xs text-zinc-700 font-medium"
           >
             Close
-          </button>
+          </Button>
         </div>
       </div>
     </div>

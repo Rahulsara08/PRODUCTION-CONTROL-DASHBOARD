@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { RefreshCw } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 
 interface HeaderProps {
   onResetData: () => void;
@@ -45,19 +46,18 @@ export const Header: React.FC<HeaderProps> = ({
 
         {/* Action button */}
         <div className="flex items-center gap-2">
-          <button
+          <Button
             id="reset-demo-data-btn"
+            variant="outline"
+            size="sm"
             onClick={onResetData}
             disabled={isLoading}
-            className={cn(
-              "inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-md border border-zinc-300 bg-white hover:bg-zinc-50 text-zinc-800 font-medium transition-colors shadow-sm cursor-pointer",
-              isLoading ? "opacity-60 cursor-not-allowed" : ""
-            )}
+            className="text-xs font-medium text-zinc-800"
             title="Reset to default sample jobs"
           >
             <RefreshCw className={cn("w-3.5 h-3.5", isLoading ? "animate-spin text-zinc-600" : "text-zinc-500")} />
             <span>Reset Data</span>
-          </button>
+          </Button>
         </div>
       </div>
     </header>
