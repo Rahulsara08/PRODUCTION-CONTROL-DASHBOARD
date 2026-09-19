@@ -1,36 +1,43 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Production Control Dashboard
+
+A clean, minimalist web dashboard for factory operations managers to track shop floor production jobs, spot delayed orders quickly, and update job statuses in real time.
+
+## Features
+
+- **Summary Metrics**: High-level floor counts for Total Jobs, Delayed orders, Due Today / Soon, and Completed jobs. Values recalculate immediately upon status changes.
+- **Jobs Table**: Comprehensive work order table with Job ID, part name, customer, quantity, due date with relative delivery window, status indicator, and assigned machine station.
+- **Instant Search**: Case-insensitive live search matching job ID, part name, customer, and machine.
+- **Status Filtering**: One-click status filter tabs (All, Delayed, In Progress, Pending, Completed) with live counts.
+- **Multi-Column Sorting**: Sort by due date, quantity, job ID, or customer name in ascending/descending order.
+- **Job Detail Slide-out Sheet**: Inspect full work order details, machine assignment, and floor notes. Supports keyboard navigation (`Esc` to dismiss).
+- **Inline Status Updates**: Change job status directly from the side panel with immediate reflection across the table and summary cards.
+- **Shop Floor Notes**: Add and update operator notes and issue logs.
+- **Responsive & Accessible**: Fully functional on desktop, tablet, and mobile screens.
+
+## Tech Stack
+
+- **Framework**: [Next.js 16](https://nextjs.org/) (App Router)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **Icons**: [Lucide React](https://lucide.dev/)
 
 ## Getting Started
 
-First, run the development server:
-
+1. Install dependencies:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Run the development server:
+```bash
+npm run dev
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Build for Production
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm run build
+npm run start
+```
